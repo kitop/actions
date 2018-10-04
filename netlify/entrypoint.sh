@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-sh -c "netlify $*"
+sh -c "${BUILD_COMMAND:-echo} && netlify $*"

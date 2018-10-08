@@ -8,7 +8,8 @@ else
     --arg cmd "$NETLIFY_CMD" \
     --arg base "$NETLIFY_BASE" \
     --arg dir "$NETLIFY_DIR" \
-    '. + {cmd: $cmd, base: $base, dir: $dir}' \
+    --arg site_id "$NETLIFY_SITE_ID" \
+    '. + {cmd: $cmd, base: $base, dir: $dir, site_id: $site_id}' \
      "$GITHUB_EVENT_PATH" > args.json
   curl \
     -H "Authorization: $GITHUB_TOKEN" \

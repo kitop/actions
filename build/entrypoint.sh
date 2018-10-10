@@ -13,7 +13,7 @@ else
      "$GITHUB_EVENT_PATH" > args.json
   curl \
     -H "Authorization: $GITHUB_TOKEN" \
-    -H "X-GitHub-Event: $GITHUB_EVENT" \
+    -H "X-GitHub-Event: $GITHUB_EVENT_TYPE" \
     -H 'Content-Type: application/json' \
     --data-binary @args.json \
     "https://api.netlify.com/api/v1/github/$GITHUB_REPOSITORY/build"

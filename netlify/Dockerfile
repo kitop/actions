@@ -1,12 +1,13 @@
 FROM node:10-alpine
 
+LABEL version="1.0.0"
+LABEL repository="http://github.com/kitop/actions"
+LABEL homepage="http://github.com/kitop/actions/netlify"
+LABEL maintainer="Esteban Pastorino"
 LABEL "com.github.actions.name"="Netlify"
-LABEL "com.github.actions.description"="Netlify CLI"
+LABEL "com.github.actions.description"="Wraps the Netlify CLI to enable common Netlify commands"
 LABEL "com.github.actions.icon"="cloud"
 LABEL "com.github.actions.color"="blue"
-LABEL "repository"="http://github.com/kitop/actions"
-LABEL "homepage"="http://github.com/kitop/actions/netlify"
-LABEL "maintainer"="Esteban Pastorino"
 
 RUN yarn global add netlify-cli@next
 

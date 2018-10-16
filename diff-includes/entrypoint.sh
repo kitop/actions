@@ -1,3 +1,7 @@
-#!/bin/sh -l
+#!/bin/bash -l
 
-sh -c "if ! git diff-index --quiet HEAD~$(jq '.commits | length' "${GITHUB_EVENT_PATH}") $*; then echo 'changes in $*, proceeding'; else echo 'no changes in $*, stopping' && echo 'ignore:$*' >> $HOME/ignore; fi"
+if ! git diff-index --quiet HEAD~$(jq '.commits | length' "${GITHUB_EVENT_PATH}") $*; then
+  echo "Changes in $*, proceeding"
+else
+  echo "No changes in $*, stopping" && echo "ignore:$*" >> $HOME/ignore
+fi

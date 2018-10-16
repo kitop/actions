@@ -9,7 +9,7 @@ LABEL "com.github.actions.description"="Deploy a site to Netlify"
 LABEL "com.github.actions.icon"="cloud"
 LABEL "com.github.actions.color"="blue"
 
-RUN apk add --no-cache curl jq
+RUN apk add --update curl jq && rm -rf /var/cache/apk/*
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

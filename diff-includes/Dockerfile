@@ -1,4 +1,4 @@
-FROM alpine/git
+FROM alpine:latest
 
 LABEL version="1.0.0"
 LABEL repository="http://github.com/kitop/actions"
@@ -9,7 +9,7 @@ LABEL "com.github.actions.description"="Stop workflow unless changes were made i
 LABEL "com.github.actions.icon"="git-commit"
 LABEL "com.github.actions.color"="gray-dark"
 
-RUN apk add --no-chache jq
+RUN apk add --update git jq && rm -rf /var/cache/apk/*
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

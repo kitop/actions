@@ -3,7 +3,7 @@
 if [ -f "$HOME/ignore" ] && grep "^ignore:$BUILD_DIR" "$HOME/ignore"; then
   echo "$BUILD_DIR didn't change"
 else
-  echo 'Deploying'
+  echo "Deploying"
   jq \
     --arg cmd "$NETLIFY_CMD" \
     --arg base "$NETLIFY_BASE" \
